@@ -15,26 +15,38 @@ pip install -r requirements.txt
 
 ## Reproducing the paper
 
-| Paper | Notebook 
-|---|---|---|
-| Fig. 1 — two-server cost sweep | `notebooks/02_two_server.ipynb` 
-| Fig. 2 + Table I — training dynamics, 5 seeds | `notebooks/03_training_dynamics.ipynb` 
-| Figs. 3–4 — RVI optimum and suboptimality gap | `notebooks/04_rvi_validation.ipynb` 
-| Fig. 5 — multi-server scaling | `notebooks/05_multiserver.ipynb`
-| Simulator validation | `notebooks/01_simulator_tests.ipynb` 
 
-Cached outputs are in `results/`, so figures can be rebuilt without re-training.
+| Paper result | Notebook |
+|---|---|
+| Fig. 1 - Two-server cost sweep | [`02_two_server.ipynb`](notebooks/02_two_server.ipynb) |
+| Fig. 2 + Table I - Training dynamics (5 seeds) | [`03_training_dynamics.ipynb`](notebooks/03_training_dynamics.ipynb) |
+| Figs. 3–4 - RVI optimum and suboptimality gap | [`04_rvi_validation.ipynb`](notebooks/04_rvi_validation.ipynb) |
+| Fig. 5 - Multi-server scaling | [`05_multiserver.ipynb`](notebooks/05_multiserver.ipynb) |
+| Simulator validation | [`01_simulator_tests.ipynb`](notebooks/01_simulator_tests.ipynb) |
+
+Cached outputs are available in `results/`, so figures can be rebuilt without retraining.
 
 ## Setup (Section V-A)
-κ = 1.0 · α_w = α_θ = 10⁻³ (∝ 1/√k for k > 2) · β = 10⁻² · gradient clip ±0.5
-· 6×10⁵ training steps · buffer l_M = 100 · seeds 0–4 (eval seeds 1000–1004)
-· two-server μ₁ = 10, μ₂ = 1 · multi-server μ = linspace(10, 1, k)
-· initial thresholds: ACHQ q₁ = 5; HACHQ (q₀, q₁) = (2, 6)
 
-## Layout
-`simulator.py` uniformised CTMC · `achq.py` baseline · `hachq.py` this paper ·
-`multiserver.py` k servers · `rvi.py` exact optimum · `metrics.py` logging and
-paired-seed statistics · `figures.py` publication figures
+- **Learning rates:** \(\alpha_w = \alpha_\theta = 10^{-3}\), scaled as \(1/\sqrt{k}\) for \(k > 2\).
+- **Other parameters:** \(\kappa = 1.0\), \(\beta = 10^{-2}\), gradient clipping at \(\pm 0.5\).
+- **Training:** \(6 \times 10^5\) steps, buffer size \(l_M = 100\).
+- **Random seeds:** Training seeds 0–4; evaluation seeds 1000–1004.
+- **Two-server setup:** \(\mu_1 = 10,\ \mu_2 = 1\).
+- **Multi-server setup:** \(\mu = \operatorname{linspace}(10,1,k)\).
+- **Initial thresholds:** ACHQ: \(q_1 = 5\); HACHQ: \((q_0,q_1) = (2,6)\).
+
+## Project structure
+
+| File | Description |
+|---|---|
+| `simulator.py` | Uniformised continuous-time Markov chain (CTMC) simulator |
+| `achq.py` | ACHQ baseline implementation |
+| `hachq.py` | HACHQ implementation proposed in this paper |
+| `multiserver.py` | Multi-server experiments |
+| `rvi.py` | Relative value iteration (RVI) and exact optimum |
+| `metrics.py` | Logging and paired-seed statistics |
+| `figures.py` | Publication-quality figures |
 
 ## Notes
 - Averages are over uniformised time steps (R = λ + Σμᵢ), matching the RVI yardstick.
