@@ -1,7 +1,7 @@
 # HACHQ — Two-Threshold Actor–Critic Routing for Heterogeneous Queues with Switching Costs
 
 Reference implementation for M. Ali and D. Efrosinin, *"Two-Threshold Actor-Critic
-Routing for Heterogeneous Queues with Switching Costs"*, IEEE, 2026. [DOI pending]
+Routing for Heterogeneous Queues with Switching Costs"*, IEEE, 2026. DOI: 10.1109/CITDS70571.2026.11706929
 Extended treatment: [MSc thesis, JKU Linz](https://epub.jku.at/obvulihs/download/pdf/14558869)
 
 HACHQ extends ACHQ (Jali et al., AISTATS 2024) with (i) a switching-cost-aware
