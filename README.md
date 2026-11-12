@@ -58,6 +58,6 @@ Cached outputs are available in `results/`, so figures can be rebuilt without re
 
 ## Citation
 ```bibtex
-@inproceedings{ali2026hachq, ... }
+M. Ali and D. Efrosinin, "Learning Hysteretic Routing Policies for Heterogeneous Queues with Switching Costs," 2026 IEEE 4th Conference on Information Technology and Data Science (CITDS), Debrecen, Hungary, 2026, pp. 19-24, doi: 10.1109/CITDS70571.2026.11706929.
 ```
 MIT licensed.
